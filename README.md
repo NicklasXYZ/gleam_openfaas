@@ -41,7 +41,7 @@ faas-cli deploy -f test-function.yml # --gateway=http://localhost:31112
 faas-cli up -f test-function.yml
 
 # To remove function deployments run:
-sudo faas-cli remove -f test-function.yml
+faas-cli remove -f test-function.yml
 ```
 7. Wait a few seconds, then we can invoke the function by simply calling:
 ```bash
