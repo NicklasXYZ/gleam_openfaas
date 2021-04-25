@@ -6,11 +6,13 @@ This repository contains [OpenFaaS](https://github.com/openfaas) function templa
 
 ## Usage
 
-1. Make sure OpenFaaS has been deployed to your Kubernetes cluster and the OpenFaaS CLI tool has been installed. See [here](./OpenFaaS.md) for a breif introduction on how to easily do this.
+1. Make sure OpenFaaS has been deployed to your Kubernetes cluster and the OpenFaaS CLI tool has been installed. See [here](./OpenFaaS.md) for a brief introduction on how to easily do this.
+
 2. Download the Gleam function templates from this repo:
 ```bash
 faas-cli template pull https://github.com/nicklasxyz/gleam_openfaas#main
 ```
+
 3. Create a new function:
 ``` bash
 faas-cli new --lang gleam test-function
@@ -22,11 +24,13 @@ Note: This essentially creates a usual Gleam project stucture, but with a pre-de
 vi test-function/src/function.gleam
 # ... Extend or add whatever you want to the 'handler' function.  
 ```
+
 5. Make sure a valid container registry, to where functions can be pushed, has been defined in the `test-function.yml` file:
 ``` bash
 vi test-function.yml
 ```
-6. Finally, build, push and deploy the image:
+
+6. Finally, build, push and deploy the function:
 ```
 # Authenticate with OpenFaaS (assuming kubectl is used with the k3s Kubernetes distribution):
 PASSWORD=$(k3s kubectl -n openfaas get secret basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode) && \
@@ -44,13 +48,17 @@ faas-cli up -f test-function.yml
 # To remove function deployments run:
 faas-cli remove -f test-function.yml
 ```
+
 7. Wait a few seconds, then we can invoke the function by simply calling:
 ```bash
 curl http://localhost:31112/function/test-function; echo
 
-# If nothing was changed in 'function.gleam' file before deployment, then we should just see the default message:
+# If nothing was changed in the 'function.gleam' file before deployment
+# then we should just see the default message:
 >> Hello from OpenFaaS!
 ```
+
+The function can also be invoked (as shown in the photo at the top) through the public interface at `http://localhost:31112/ui` using username `admin` and the previously defined password contained in environment variable `$PASSWORD`.
 
 ## Acknowledgements
 

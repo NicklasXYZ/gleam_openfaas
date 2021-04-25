@@ -1,14 +1,25 @@
 # Install a Kubernetes Cluster (k3s) 
 
-Install [k3s](https://k3s.io/):
+Install [k3s](https://k3s.io/), a small and lightweight Kubernetes distribution:
 
 ```bash
 curl -sfL https://get.k3s.io
 ```
 
+# Install Helm
+
+Install [helm](https://helm.sh/), a Kubernetes package manager:
+
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+rm -f get_helm.sh
+```
+
 # Install OpenFaaS 
 
-Install [OpenFaaS](https://www.openfaas.com/):
+Install [OpenFaaS](https://www.openfaas.com/), a framework for running serverless functions:
 
 ```bash
 k3s kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
@@ -43,4 +54,4 @@ faas-cli deploy --image NodeInfo --name nodeinfo --gateway http://<NODE_IP>:<OPE
 ```
 
 This "nodeinfo" function can be reached on the internal address: http://gateway.openfaas:8080 (`https://<service name>.<namespace>:<default port>`) or 
-through the publich interface at `http://localhost:31112/ui` using username `admin` and the previously defined password contained in environment variable `$PASSWORD`.
+through the public interface at `http://localhost:31112/ui` using username `admin` and the previously defined password contained in environment variable `$PASSWORD`.
