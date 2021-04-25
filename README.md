@@ -1,13 +1,15 @@
+![](preview/preview.png)
+
 # OpenFaaS Gleam function templates
 
-This repository contains [OpenFaaS](https://github.com/openfaas) function templates for writing serverless functions in (Gleam)[https://github.com/gleam-lang/gleam].
+This repository contains [OpenFaaS](https://github.com/openfaas) function templates for writing serverless functions in [Gleam](https://github.com/gleam-lang/gleam).
 
 ## Usage
 
 1. Make sure OpenFaaS has been deployed to your Kubernetes cluster and the OpenFaaS CLI tool has been installed. See [here](./OpenFaaS.md) for a breif introduction on how to easily do this.
 2. Download the Gleam function templates from this repo:
 ```bash
-faas-cli template pull https://github.com/nicklasxyz/gleam_openfaas
+faas-cli template pull https://github.com/nicklasxyz/gleam_openfaas#main
 ```
 3. Create a new function:
 ``` bash
@@ -25,15 +27,15 @@ vi test-function.yml
 ```
 6. Finally, build, push and deploy the image:
 ```
-# Login:
-PASSWORD=$(kubectl -n openfaas get secret basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode) && \
+# Authenticate with OpenFaaS (assuming kubectl is used with the k3s Kubernetes distribution):
+PASSWORD=$(k3s kubectl -n openfaas get secret basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode) && \
 echo "OpenFaaS admin password: $PASSWORD"
 faas-cli login --gateway http://localhost:31112 --password=$PASSWORD
 
 # Build and deploy:
 faas-cli build -f test-function.yml
 faas-cli push -f test-function.yml
-faas-cli deploy -f test-function.yml
+faas-cli deploy -f test-function.yml # --gateway=http://localhost:31112
 
 # Or just:
 faas-cli up -f test-function.yml
@@ -51,4 +53,4 @@ curl http://localhost:31112/function/test-function; echo
 
 ## Acknowledgements
 
-The general webserver setup is taken from [this repository](https://github.com/Willyboar/weby) by Willyboar.
+The general webserver setup is taken from [this repository](https://github.com/Willyboar/weby) by [Willyboar](https://github.com/Willyboar).

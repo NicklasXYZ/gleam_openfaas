@@ -8,7 +8,7 @@ curl -sfL https://get.k3s.io
 
 # Install OpenFaaS 
 
-Install (OpenFaaS)[https://www.openfaas.com/]:
+Install [OpenFaaS](https://www.openfaas.com/):
 
 ```bash
 k3s kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
