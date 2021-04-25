@@ -2,8 +2,11 @@
 
 Install [k3s](https://k3s.io/), a small and lightweight Kubernetes distribution:
 
-```bash
-curl -sfL https://get.k3s.io
+```bash 
+curl -sfL https://get.k3s.io | sh -
+
+# Check that everything was installed properly:
+k3s kubectl get node
 ```
 
 # Install Helm
