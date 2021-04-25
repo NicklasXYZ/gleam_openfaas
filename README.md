@@ -16,6 +16,7 @@ faas-cli template pull https://github.com/nicklasxyz/gleam_openfaas#main
 faas-cli new --lang gleam test-function
 ```
 Note: This essentially creates a usual Gleam project stucture, but with a pre-defined module name and files. It is important that the module and file names in this project is not changed as these are eventually imported as local dependencies by a parent module.
+
 4. Add new functionality to the function that is going to be deployed and managed by OpenFaaS:
 ``` bash
 vi test-function/src/function.gleam
