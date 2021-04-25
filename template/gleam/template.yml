@@ -1,0 +1,5 @@
+language: gleam
+fprocess: rebar3 shell
+welcome_message: |
+  You have created a new function which uses gleam_elli 0.2.
+  
