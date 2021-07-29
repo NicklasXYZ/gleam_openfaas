@@ -1,6 +1,8 @@
 # Gleam OpenFaaS function templates
 
-![](preview/logo.png)
+<p align="center">
+  <img src="preview/logo.png" />
+</p>
 
 This repository contains [OpenFaaS](https://github.com/openfaas) function templates for writing serverless functions in the [Gleam](https://github.com/gleam-lang/gleam) programming language.
 
