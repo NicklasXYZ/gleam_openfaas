@@ -23,7 +23,7 @@ faas-cli template pull https://github.com/nicklasxyz/gleam_openfaas#main
 faas-cli new --lang gleam test-function
 ```
 
-Note: This essentially creates a usual Gleam project stucture, but with a pre-defined module name and files. The main functionality should be implemented in the files contained in the `test-function/function` directory. Extra dependencies should be added to the `rebar.config` file in the root of the `test-function` directory.
+Note: This essentially creates a usual Gleam project stucture, but with a pre-defined module name and files. The main functionality should be implemented in the files contained in the `test-function/function` directory. Extra dependencies should be added to the `rebar.config` file in the root of the `test-function` directory. The project can be compiled and tested locally as usual.
 
 4. Add new functionality to the function that is going to be deployed and managed by OpenFaaS:
 
@@ -68,7 +68,7 @@ curl -k \
 
 # If nothing was changed in the 'test-function/function/src/function.gleam' file before
 # deployment then we should just see the default response:
->> Hello from OpenFaaS!
+>> Hello from Gleam & OpenFaaS!
 
 ### Example POST request:
 curl -k \
