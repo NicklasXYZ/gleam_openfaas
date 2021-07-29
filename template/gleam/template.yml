@@ -1,5 +1,5 @@
 language: gleam
-fprocess: rebar3 shell
+fprocess: /home/app/bin/gleam_openfaas foreground
 welcome_message: |
-  You have created a new function which uses gleam_elli 0.2.
+  You have created a new function that uses webserver: gleam_elli 0.2.
   

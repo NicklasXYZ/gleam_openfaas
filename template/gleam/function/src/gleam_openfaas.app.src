@@ -1,11 +1,12 @@
 {application, gleam_openfaas,
  [{description, "A Gleam project"},
-  {vsn, "1.0.0"},
+  {vsn, "0.1.0"},
   {registered, []},
   {mod, {gleam_openfaas@application, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    gleam_stdlib
    ]},
   {env,[]},
   {modules, []},
